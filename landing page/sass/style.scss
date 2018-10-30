@@ -1,0 +1,536 @@
+$darkBlue:#4466c9;
+$orange:#fc6a42;
+$yellow:#fcec64;
+$blue:#648cff;
+$dark:#353854;
+$gray:#aeaeae;
+$lightBlue:#c3cfe5;
+$lightOrange:#f2a14e;
+$lightGreen:#b8faee;
+$white:#ffffff;
+$darkWhite:#e1e1e1;
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
+images,html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size:100%;
+  vertical-align: baseline;
+  background-repeat: no-repeat;
+}
+.flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.standard-block{
+  margin: auto;
+  max-width: 1175px;
+  box-sizing: border-box;
+}
+.big-block{
+  position: relative;
+  max-width: 1920px;
+  margin: auto;
+}
+.title{
+  text-align: center;
+  h1{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: $blue;
+    position: relative;
+    &:after{
+      text-transform: none;
+      position: absolute;
+      content: "Only necessary";
+      bottom: -30px;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      color: $gray;
+      font-size: .75rem;
+    }
+    margin: 110px 0 130px;
+  }
+}
+
+html{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 24px;
+}
+a{
+  text-decoration: none;
+}
+body{
+  transition: .9s;
+}
+ul{
+  list-style: none;
+}
+.header{
+  padding-top: 60px;
+  @extend .big-block;
+  height: 100vh;
+  min-height: 880px;
+  background: url("../img/bg11.png");
+  background-size: cover;
+  .button-down{
+    text-align: center;
+    line-height: 50px;
+    color: $orange;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $white;
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    margin-left: -25px;
+    cursor: pointer;
+  }
+}
+.header-top{
+  justify-content: space-between;
+  @extend .flex;
+  @extend .standard-block;
+  min-height: 32px;
+  max-width: 1175px;
+  margin:0px auto 120px;
+}
+.logo{
+  span{
+    font-weight: bold;
+  }
+}
+.white{
+  color: $white;
+}
+.button-menu-mobile{
+  display: none;
+  z-index: 6;
+  font-size: 2.5rem;
+  width: 55px;
+  height: 60px;
+  border-radius: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+.menu-mobile{
+  border-radius: 5px;
+  max-width: 550px;
+  background-color: darken($blue,2%);
+
+  ul {
+    li {
+      height: 70px;
+      cursor: pointer;
+      &:hover {
+        background-color: lighten($blue,10%);
+        color: $white;
+      }
+    }
+    a {
+      line-height: 70px;
+      font-size: .75rem;
+      color: $darkWhite;
+      padding: 24px 87px;
+
+    }
+  }
+  .links{
+    a{
+      padding: 0;
+    }
+  }
+  position: fixed;
+  top: 0;
+  z-index: 8;
+  left: -250px;
+  transition: .3s;
+  width: 250px;
+  &.active{
+    transition: .3s;
+    left: 0px;
+  }
+}
+.menu{
+  max-width: 550px;
+  width: 100%;
+  ul{
+    li{
+      cursor: pointer;
+    }
+    a{
+      font-size: .75rem;
+      color: $darkWhite;
+      &:hover{
+        color: $white;
+      }
+    }
+    @extend .flex;
+    justify-content: space-between;
+
+  }
+}
+.links{
+  @extend .flex;
+  max-width: 150px;
+  width: 100%;
+  justify-content: space-between;
+}
+.header-middle{
+  @extend .standard-block;
+  @extend .flex;
+  justify-content: space-between;
+  min-height: 800px;
+  .left{
+    max-width: 470px;
+    min-height: 330px;
+    h1{
+      font-weight: normal;
+      font-size: 2.5rem;
+      color: $white;
+      margin-bottom: 50px;
+    }
+    p{
+      font-size: .75rem;
+      color: $darkWhite;
+    }
+  }
+  a{
+    border-radius: 3px;
+    text-align: center;
+    line-height: 55px;
+    display: block;
+    width: 160px;
+    height: 55px;
+    color: $white;
+    font-size: .75rem;
+  }
+  .bottom{
+    margin-top: 60px;
+    @extend .flex;
+    justify-content: start;
+  }
+  #download{
+    &:hover{
+      background-color: darken($orange,10%);
+    }
+    background-color: $orange;
+  }
+  #features{
+    &:hover{
+      background-color: darken($darkBlue,10%);
+    }
+    background-color: $darkBlue;
+  }
+  .right{
+    width: 100%;
+    max-width: 680px;
+    .img{
+      width: 290px;
+      height: 605px;
+      position: relative;
+      margin: auto;
+      background: url("../img/phone.png");
+    .icon{
+      font-size: .75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $white;
+      text-align: center;
+      border-radius: 50%;
+      position: absolute;
+    }
+      .icon-sunny{
+        top: 300px;
+        left: -130px;
+        line-height: 90px;
+        width: 90px;
+        height: 90px;
+        background-color: $orange;
+    }
+      .icon-london{
+        top: 270px;
+        right:-135px;
+        line-height: 90px;
+        width: 90px;
+        height: 90px;
+        background-color: $darkBlue;
+      }
+      .icon-rio{
+        bottom: 30px;
+        right: -95px;
+        background-color: $yellow;
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        color: $blue;
+      }
+    }
+  }
+}
+.feature{
+  @extend .standard-block;
+  justify-content: space-between;
+  min-height: 470px;
+  .feature-content{
+    @extend .flex;
+
+  }
+  .feature-block{
+    width: 33.3%;
+    @extend .flex;
+    justify-content: space-between;
+    .right{
+      max-width: 73%;
+      h1{
+        color: $dark;
+        margin-bottom: 30px;
+      }
+      span{
+        color: $gray;
+        font-size: .66rem;
+      }
+    }
+  }
+}
+.orange{
+  color: $orange;
+}
+.blue{
+  color: $blue;
+}
+.widgets{
+  @extend .big-block;
+  min-height: 730px;
+  .title{
+    h1{
+      &:after{
+        content: "Drag and Drop";
+      }
+    }
+  }
+  .widgets-content{
+    width: 100%;
+    @extend .standard-block;
+    height: 670px;
+  }
+}
+.screenshots{
+  @extend .big-block;
+  min-height: 730px;
+  .title{
+    h1{
+      &:after{
+        content: "The brightest images";
+      }
+    }
+  }
+
+  .screenshots-content{
+    @extend .standard-block;
+  }
+  .icons{
+    margin-top: 40px;
+  }
+  .screenshots-block{
+    margin-bottom: 150px;
+    width: 100%;
+    min-height: 710px;
+    @extend .flex;
+    justify-content: space-between;
+    .left{
+      max-width: 400px;
+    img{
+      width: 100%;
+    }
+    }
+    .right{
+      width: 56%;
+      h1{
+        margin: 50px 0 40px;
+        color: $blue;
+        font-size: 1.5rem;
+      }
+      p{
+        color: $dark;
+      }
+    }
+  }
+}
+.comments{
+  @extend .big-block;
+  .comments-top{
+    .title{
+      h1{
+        margin: 110px 0 170px;
+        &:after{
+          content: "Reviews";
+        }
+      }
+    }
+  }
+  .comments-content{
+    @extend .standard-block;
+    @extend .flex;
+    justify-content: space-between;
+    .comments-block{
+      height: 290px;
+      p{
+        font-size: .75rem;
+        color: $gray;
+        margin-top: 30px;
+      }
+      span{
+        color: $dark;
+      }
+      position: relative;
+      &:before{
+        position: absolute;
+        top: -80px;
+        left: -14px;
+        font-size: 6rem;
+        content: " \" ";
+        color: $darkBlue;
+      }
+      &:after{
+        position: absolute;
+        bottom: 45px;
+        right: 3px;
+        font-size: 6rem;
+        content: " \" ";
+        color: $darkBlue;
+      }
+      width: 48%;
+    }
+  }
+}
+.how-to-download{
+  overflow: hidden;
+
+  @extend .big-block;
+  background-color: $blue;
+  min-height: 460px;
+
+}
+.how-to-download-content{
+  min-height: 460px;
+  @extend .standard-block;
+  display: flex;
+  align-items: center;
+  position: relative;
+  .links2{
+   width: 330px;
+    @extend .flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: -35px;
+    left: 0;
+  }
+}
+.phone-download, .phone2-download,.phone3-download{
+  position: absolute;
+  right: 50px;
+  z-index: 3;
+  bottom: -218px;
+}
+.phone2-download{
+  right: -150px;
+  z-index: 2;
+  bottom: -300px;
+}
+.phone3-download{
+  right: 225px;
+  z-index: 2;
+  bottom: -300px;
+}
+.how-to-download-left{
+  position: relative;
+  max-width: 490px;
+  min-height: 230px;
+  h1{
+    text-transform: uppercase;
+    color: $white;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  p{
+    font-size: .75rem;
+    color: $white;
+
+  }
+}
+.footer{
+  @extend .big-block;
+  display: flex;
+  align-items: center;
+  min-height: 160px;
+  background-color: $dark;
+  .footer-top{
+      justify-content: space-between;
+      @extend .flex;
+      @extend .standard-block;
+      min-height: 32px;
+    width: 100%;
+      max-width: 1175px;
+    margin: auto;
+  }
+}
+.widgets-content{
+  margin: 0 auto;
+  width: 250px;
+  height: 200px;
+  position: relative;
+  perspective: 1000px;
+}
+.footer-bottom-bg{
+  @extend .big-block;
+  background-color: $dark;
+}
+.up-button{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  right: 19px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  line-height: 50px;
+  text-align: center;
+  color: $orange;
+  background-color: lighten($dark,10%);
+}
+.footer-bottom{
+  position: relative;
+  @extend .flex;
+  justify-content: flex-end;
+  max-width: 1600px;
+  height: 150px;
+  align-items: center;
+  margin: auto;
+
+  border-top: 1px solid lighten($dark,10%);
+  .text{
+    max-width: 480px;
+    span{
+      color: $gray;
+      font-size: .75rem;
+    }
+  }
+}
+@import "media";
