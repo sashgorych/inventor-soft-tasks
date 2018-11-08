@@ -1,0 +1,47 @@
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group row"
+         *ngFor="let item of form.get('items').controls; let i=index"
+         [formGroup]="item">
+      <div class="col-sm-3">
+        <label [attr.for]="'name'+i">Name</label>
+        <input type="text" class="form-control"
+               [attr.id]="'name'+i" formControlName="name"
+               [ngClass]="{'is-invalid': item.get('name').pristine && item.get('name').touched}"
+        >
+      </div>
+      <div class="col-sm-3">
+        <label [attr.for]="'email'+i">Email</label>
+        <input type="email" class="form-control"
+               [attr.id]="'email'+i" formControlName="email"
+               [ngClass]="{'is-invalid': item.get('email').invalid && item.get('email').touched}"
+        >
+        <small *ngIf="item.get('email').invalid && item.get('email').touched">Email is not valid.</small>
+      </div>
+      <div class="col-sm-3">
+        <label [attr.for]="'phone'+i">Phone</label>
+        <input type="tel" class="form-control"
+               [attr.id]="'phone'+i" formControlName="phone"
+               [ngClass]="{'is-invalid': item.get('phone').invalid && item.get('phone').touched}"
+        >
+        <small *ngIf="item.get('phone').invalid && item.get('phone').touched">Phone is not valid.</small>
+      </div>
+
+    </div>
+  <div  class="form-group row">
+    <div class="col-sm-2">
+      <button type="submit"
+              class="btn btn-primary"
+              [disabled]="form.invalid"
+      >Submit</button>
+    </div>
+    <div class="col-sm-2">
+      <button type="button"
+              class="btn btn-primary"
+              routerLink="/main"
+      >go back</button>
+    </div>
+
+  </div>
+</form>
+
