@@ -1,4 +1,7 @@
 (function(){
+    //scroll animation
+    new WOW().init();
+
     //widget slider
     $('.widgets-content').flipster({
         loop: 1,
